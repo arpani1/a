@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Car Hill Climb Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            display: block;
+            background-color: #87CEEB;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<a href="app.htm"><b>BACK <--- APP </b> </a>
+
+<canvas id="gameCanvas" width="800" height="400"></canvas>
+
+<script>
+// Get canvas element and set up context
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+// Game settings
+const carWidth = 50;
+const carHeight = 30;
+const gravity = 0.5;
+const friction = 0.99;
+let isJumping = false;
+
+// Car object with properties
+const car = {
+    x: 50,
+    y: canvas.height - carHeight - 10,
+    width: carWidth,
+    height: carHeight,
+    speedX: 0,
+    speedY: 0,
+    acceleration: 0.1
+};
+
+// Terrain generation (hill climbing)
+let terrain = [];
+let terrainHeight = 100;
+let terrainWidth = 200;
+let groundHeight = 50;
+
+// Generate terrain
+function generateTerrain() {
+    for (let i = 0; i < canvas.width; i++) {
+        let y = Math.sin(i / 50) * terrainHeight + canvas.height - groundHeight;
+        terrain.push(y);
+    }
+}
+
+// Draw terrain
+function drawTerrain() {
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height - groundHeight);
+    for (let i = 0; i < terrain.length; i++) {
+        ctx.lineTo(i, terrain[i]);
+    }
+    ctx.lineTo(canvas.width, canvas.height - groundHeight);
+    ctx.closePath();
+    ctx.fillStyle = '#2C6E49'; // Ground color
+    ctx.fill();
+}
+
+// Draw car
+function drawCar() {
+    ctx.fillStyle = '#FF0000'; // Car color
+    ctx.fillRect(car.x, car.y, car.width, car.height);
+}
+
+// Move the car based on user input
+function moveCar() {
+    if (isJumping) {
+        car.speedY -= 2;  // Jump strength
+    }
+    car.speedY += gravity;  // Apply gravity
+    car.speedX *= friction;  // Friction (slows down the car)
+
+    car.x += car.speedX;
+    car.y += car.speedY;
+
+    if (car.y > canvas.height - groundHeight - car.height) {
+        car.y = canvas.height - groundHeight - car.height;
+        car.speedY = 0;  // Stop falling when hitting ground
+    }
+
+    if (car.x < 0) car.x = 0;
+    if (car.x > canvas.width - car.width) car.x = canvas.width - car.width;
+}
+
+// Update the game each frame
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Update car
+    moveCar();
+    drawTerrain();
+    drawCar();
+
+    requestAnimationFrame(update);
+}
+
+// Handle key presses for movement
+document.addEventListener('keydown', (e) => {
+    if (e.key === "ArrowUp" && !isJumping) {
+        isJumping = true;
+    }
+    if (e.key === "ArrowRight") {
+        car.speedX += car.acceleration;
+    }
+    if (e.key === "ArrowLeft") {
+        car.speedX -= car.acceleration;
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key === "ArrowUp") {
+        isJumping = false;
+    }
+});
+
+// Initialize the game
+generateTerrain();
+update();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arpan.com/in/app</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+          
+        }
+
+        #app {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #nav-buttons {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .page {
+            display: none;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- Navigation Buttons -->
+        <div id="nav-buttons">
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('feedback')">Feedback</button>
+            <button onclick="showPage('aboutus')">About Us</button>
+        </div>
+
+        <!-- Home Page -->
+        <div id="home" class="page">
+            <h1>Welcome to the Home Page</h1>
+            <p>This is the main page of the website.</p>
+        </div>
+
+        <!-- Feedback Page -->
+        <div id="feedback" class="page">
+            <h1>Feedback Page</h1>
+            <p>We'd love to hear your thoughts! Please provide your feedback here.</p>
+        </div>
+
+        <!-- About Us Page -->
+        <div id="aboutus" class="page">
+            <h1>About Us</h1>
+            <p>Learn more about our company and our mission.</p>
+            <h1>We are here to make websites and study more feature</1>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.style.display = 'none');
+            
+            // Show the selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+        }
+
+        // Initialize the app by showing the Home page by default
+        window.onload = () => {
+            showPage('home');
+        };
+    </script>
+    <br>
+    <br>
+    <br>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Button Style */
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My Simple Website</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#" onclick="showContent('home')">Home</a>
+        <a href="#" onclick="showContent('about')">About</a>
+        <a href="#" onclick="showContent('services')">Services</a>
+        <a href="#" onclick="showContent('contact')">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div id="home" class="content" style="display:block;">
+            <h2>Home Page</h2>
+            <p>This is the home page of my simple website.</p>
+            <button onclick="alert('Welcome to Home Page!')">Click Me</button>
+        </div>
+
+        <div id="about" class="content" style="display:none;">
+            <h2>About Us</h2>
+            <p>We are a small company providing excellent services to our clients.</p>
+        </div>
+
+        <div id="services" class="content" style="display:none;">
+            <h2>Our Services</h2>
+            <p>We offer a wide range of services to help you succeed in your business.</p>
+        </div>
+
+        <div id="contact" class="content" style="display:none;">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for more information or to get started.</p>
+            <p> call on 9980035271 </p>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 My Simple Website</p>
+    </footer>
+
+    <script>
+        // Function to show content based on the selected page
+        function showContent(page) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected page content
+            const selectedPage = document.getElementById(page);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Embed in a Modal</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0,0,0,0.5); /* Black with opacity */
+            overflow: auto; /* Enable scroll if needed */
+            padding-top: 60px;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to trigger modal -->
+    <button id="openModalBtn">Find us</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Websiters</h2>
+            <!-- Embedding an external website inside an iframe -->
+               a:link, a:visited {
+  background-color: black;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: blue;
+}
+</style>
+</head>
+<body>
+
+<h2>Link Button</h2>
+
+<p>A link styled as a button:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Button</title>
+    <style>
+        /* Style for the button */
+        .stylish-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+<a href="#" onclick="showContent('home')">Home</a>
+
+
+
+        /* Hover effect to make the button bigger */
+        .stylish-button:hover {
+            transform: scale(1.2);  /* This makes the button 20% bigger */
+            background-color: #45a049; /* Slightly darker green */
+        }
+    </style>
+</head>
+<body>
+    <h1>Stylish Button Example</h1>
+    <button class="stylish-button">Find Us!</button>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND Us</title>
+    <style>
+        /* Style for the link button */
+        .button-link {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            text-decoration: none;  /* Removes the underline */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for the link button */
+        .button-link:hover {
+            background-color: #45a049; /* Slightly darker green */
+        }
+    </style>
+</head>
+<body>
+    <h1>BUTTON_FIND US</h1>
+    <a href="https://www.google.co.in/maps/@29.5001299,73.4991268,19.83z?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D" class="button-link">Find Us</a>
+</body>
+</html>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+ <style>
+        /* Style for the button */
+        .button {
+            background-color: blue;  /* Default red color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make it behave like a button */
+            transition: all 0.2s ease;  /* Smooth transition for changes */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: red; /* Change to blue when hovered */
+            transform: scale(1.3);   /* Make the button bigger */
+</style>
+   <a href="https://https://www.google.co.in/maps/"class="button" target="_blank">Click here</a>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Picture</title>
+</head>
+<body>
+
+
+
+    
+    <button class="join-button">
+    <a href="grid.html" class= "button" target=" _blank">
+      Open Grid (CLONE) </a>
+    </button>
+
+      <button class="subscribe-button">
+    <a href= "position.html" class= "button" target= "_blank">
+
+      POSITION </a>
+    </button>
+
+
+  <button class="tweet-button">
+<a href="youtube.html" class= "button" target=" _blank">
+      Open YT (CLONE) </a>
+    </button>
+
+
+    
+    
+    
+</body>
+</html>
+
+ <style>
+        /* Style for the button */
+        .button {
+            background-color: red;  /* Default red color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make it behave like a button */
+            transition: all 0.2s ease;  /* Smooth transition for changes */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: blue; /* Change to blue when hovered */
+            transform: scale(1.3);   /* Make the button bigger */
+</style>
+
+<a href="game.snake.html"class="button" target="_blank"><b>PLAY</b> Snake Game</a>
+
+<br>
+ <style>
+        /* Style for the button */
+        .button {
+            background-color: blue;  /* Default red color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make it behave like a button */
+            transition: all 0.2s ease;  /* Smooth transition for changes */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: red; /* Change to blue when hovered */
+            transform: scale(1.3);   /* Make the button bigger */
+
+       </style>
+<a href="game hill climb racing.htm"  class="button" target="_blank"><b>PLAY</b> <i> HILL CILMB RACING </i> Game</a>
+
+<a href="learn.html" class= "button" target= "_blank"> Learn <b> HTML </b> </a>
+
+<br>
+  <style>
+        /* Style for the button */
+        .button {
+            background-color: red;  /* Default red color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make it behave like a button */
+            transition: all 0.2s ease;  /* Smooth transition for changes */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: blue; /* Change to blue when hovered */
+            transform: scale(1.3);   /* Make the button bigger */
+
+</style>
+
+
+<a href="links.htm" class="button" target="_blank"> Open Links</a>
+
+  <style>
+        /* Style for the button */
+        .button {
+            background-color: blue;  /* Default red color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make it behave like a button */
+            transition: all 0.2s ease;  /* Smooth transition for changes */
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: red; /* Change to blue when hovered */
+            transform: scale(1.3);   /* Make the button bigger */
+
+</style>
+
+<a href="fit.htm" class="button" target="_blank"> How to be fit? </a>
+
+
+
+
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <h1>THANKS &copy ARPAN 2025</h1>
+    <img src="https://www.indiamart.com/proddetail/computer-laptop-14206620091.html/image.jpg" alt="A beautiful scenery">
+</body>
+</html>
+
